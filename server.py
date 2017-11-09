@@ -59,12 +59,11 @@ def admin_login():
             attempted_email = request.form['email']
             attempted_password = request.form['password']
 
-            flash(attempted_email)
-            flash(attempted_password)
-            if attempted_email == "admin@admin.com" and attempted_password == "admin":
-                return redirect(url_for('admin_index'))
-            else:
+            if attempted_email != "admin@admin.com" and attempted_password != "admin":
                 error = "Invalid credential"
+            else:
+                flash('You have successfully logged in')
+                return redirect(url_for('admin_index'))
         return render_template("admin/login.html", error=error)
 
     except Exception as e:
@@ -101,11 +100,36 @@ def create():
 
     return render_template("admin/index.html", autopsies=autopsies)
 
-@app.route("/admin/edit/<int:id>", methods=['GET', 'POST'])
+@app.route("/admin/edit/<int:id>")
 def edit(id):
     autopsi = AutopsyModel.get(AutopsyModel.id == id)
-
     return render_template('admin/edit.html', autopsy=autopsi)
 
+@app.route("/admin/update/<int:id>", methods=['POST', 'GET'])
+def update(id):
+    autopsy = AutopsyModel.get(AutopsyModel.id == id)
+    if request.method == 'POST':
+        autopsy.company_name = request.form['startup_name']
+        autopsy.industry = request.form['industry']
+        autopsy.country = request.form['country']
+        autopsy.description = request.form['description']
+        autopsy.year_range = request.form['year_range']
+        autopsy.founder_name = request.form['founder_name']
+        autopsy.why_they_failed = request.form['why_they_failed']
+        autopsy.amount_raised = request.form['amount_raised']
+        # autopsy.company_logo = request.files['company_logo']
+
+        autopsy.save()
+    return redirect("admin/")
+
+@app.route("/admin/delete/<int:id>")
+def delete(id):
+    autopsy = AutopsyModel.get(AutopsyModel.id == id)
+    autopsy.delete_instance()
+    return redirect('admin/')
+
+@app.route('/layout')
+def layout():
+    return render_template('admin/layouts.html')
 
 app.secret_key = os.environ.get("FLASK_SECRET_KEY")

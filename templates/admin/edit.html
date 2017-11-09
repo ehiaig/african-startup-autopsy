@@ -372,7 +372,7 @@
               <!-- /. tools -->
             </div>
             <div class="box-body">
-              <form method="post" action="/admin/update" enctype="multipart/form-data">
+              <form method="post" action="{{ url_for('update', id=autopsy.id) }}" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="exampleInput">Company Name</label>
                   <input type="text" class="form-control" name="startup_name" value="{{ autopsy.company_name }}">
@@ -414,7 +414,7 @@
 
                 <div class="box-footer clearfix">
                     <button class="pull-right btn btn-primary" id="sendEmail" type="submit">Save
-                    <i class="fa fa-edit"></i></button>
+                    <i class="fa fa-save"></i></button>
                 </div>
               </form>
             </div>
@@ -461,20 +461,6 @@
 
                   </div>
                 </li>
-                <!-- /.item --
-                <li class="item">
-                  <div class="product-img">
-                    <img src="dist/img/default-50x50.gif" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title">Bicycle
-                      <span class="label label-info pull-right">$700</span></a>
-                    <span class="product-description">
-                          26" Mongoose Dolomite Men's 7-speed, Navy Blue.
-                        </span>
-                  </div>
-                </li>
-                <!-- /.item -->
               </ul>
                 {% endfor %}
             </div>
