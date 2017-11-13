@@ -11,6 +11,8 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
+UPLOAD_FOLDER = './static/uploads'
+
 @app.before_first_request
 def initialize_tables():
     connect_db()
@@ -29,7 +31,14 @@ def disconnect_db(err=None):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    autopsies = AutopsyModel.select()
+    return render_template("index.html", autopsies=autopsies)
+
+@app.route("/startups")
+def show_startup():
+    autopsies = AutopsyModel.select()
+    return render_template("startups.html", autopsies=autopsies)
+
 
 @app.route("/admin/register")
 def admin_reg():
@@ -90,13 +99,16 @@ def create():
         founder_name = request.form['founder_name']
         why_they_failed = request.form['why_they_failed']
         amount_raised = request.form['amount_raised']
-        # company_logo = request.files['company_logo']
+        logo = request.files['company_logo'] # this is a file handler??
         timestamp = datetime.now()
 
-        query = AutopsyModel(company_name=company_name, industry=industry, description=description,
+        company_logo = secure_filename(logo.filename)
+
+        logo.save(os.path.join(UPLOAD_FOLDER, company_logo))
+
+        AutopsyModel.create(company_name=company_name, industry=industry, description=description,
                              year_range=year_range, founder_name=founder_name, why_they_failed=why_they_failed,
-                             timestamp=timestamp, country=country, amount_raised=amount_raised)
-        query.save()
+                             timestamp=timestamp, country=country, amount_raised=amount_raised,company_logo=company_logo)
 
     return render_template("admin/index.html", autopsies=autopsies)
 
@@ -117,7 +129,12 @@ def update(id):
         autopsy.founder_name = request.form['founder_name']
         autopsy.why_they_failed = request.form['why_they_failed']
         autopsy.amount_raised = request.form['amount_raised']
-        # autopsy.company_logo = request.files['company_logo']
+
+        logo = request.files['company_logo'] #write the string representation of your filehandler to the db
+        company_logo = secure_filename(logo.filename)
+        logo.save(os.path.join(UPLOAD_FOLDER, company_logo))
+
+        autopsy.company_logo = company_logo #assign the url to our db field
 
         autopsy.save()
     return redirect("admin/")

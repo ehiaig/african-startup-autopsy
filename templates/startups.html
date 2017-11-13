@@ -58,12 +58,13 @@
                     </div><!--/.nav-head-->
             </nav><!--/.header-->
             <!--HEADER END-->
+        </div>
 
             <!--YOUTUBE BACKGROUND-->
             <div class="bg-youtube" data-property="{videoURL:'http://www.youtube.com/watch?v=LWjq0ibMpYI', opacity:1, autoPlay:true, containment:'#home', startAt:0, stopAt:0, mute:true, optimizeDisplay:true, showControls:false, printUrl:true, loop:true, addRaster:false, quality:'hd1080', realfullscreen:'true', ratio:'auto'}"></div>
             <!--YOUTUBE BACKGROUND END-->
 
-            <!--HERO  START-->
+            <!--HERO  START--
             <div class="hero-box container">
                 <div class="small-caption-box">
                     <p class="smal-caption-sub">African startup Autopsies</p>
@@ -79,68 +80,99 @@
                         <a class="hero-btn margin-right10" href="#">Startup Reviews</a>
                         <a class="hero-btn" href="#">Submit startup</a>
                     </p>
-                </div><!--/.small-caption-box-->
+                </div><!--/.small-caption-box--
             </div><!--/.hero-box-->
             <!--HERO  END-->
         </div><!--/home end-->
         <!--HOME END-->
 
-        <div class="content banner clearfix">
-            <div class="container">
+            <div class="content blog-wrapper single-blog">
+			    <div class="container clearfix">
+				 <p class="row clearfix">
+					<div class="col-md-8 blog-content">
 
-                <div class="row">
-                    {% for q in autopsies %}
-                    <div class="col-md-3">
-                        <div class="bordering">
-                            <div class="mybox">
-                                <img src="{{ url_for('static', filename='uploads/{}'.format(q.company_logo)) }}" alt="company logo">
+						<!--BLOG POST START-->
+						<article class="blog-post">
+
+                             <h5 class="blog-title">Five friends are Terrorized by an Entity Mysterious Supernatural  </h5>
+                            <p>Hi</p>
+							 <ul class="post-detail">
+							 	<li><i class="fa fa-archive"></i> <a href="#">Indistry</a></li>
+								<li><i class="fa fa-tags"></i> <a href="#">Amount Raised</a></li>
+								<li><i class="fa fa-calendar-o"></i> Year Range</li>
+                                 <li><i class="fa fa-calendar-o"></i> Founders</li>
+							 </ul>
+							 <div class="spacing40 clearfix"></div>
+
+
+							 <p>About startup.</p>
+                            <div class="spacing20 clearfix"></div>
+                            <div class="border-post clearfix"></div>
+                            <div>
+                                Why they failed
                             </div>
-                            <h2 class="content-title">{{ q.company_name }}</h2>
-                            <p><i><strong>{{ q.industry }}</strong></i></p>
-                            <p>{{ q.description }}</p>
-                        </div><!--/.bordering-->
-                    </div><!--/.col-md-4-->
-                    {% endfor %}
-                </div><!--/.row-->
 
-                <!-- Comment section -->
-        <div class="comments clearfix">
-            <div id="show-comment"><!--show-comments-start-->
-               <div class="row">
-                    {% for q in autopsies %}
-                    <div class="col-md-3">
+                             <div class="border-post clearfix"></div>
+						</article><!--/.blog-post-->
+						<!--BLOG POST END-->
+					</div><!--/.col-md-8-->
 
-                        <div class="comment-content">
-                            <div class="comment-ava">
-                                <img src="{{ url_for('static', filename='uploads/{}'.format(q.company_logo)) }}" alt="company logo">
+					<!--SIDEBAR START-->
+					<div class="col-md-4 sidebar">
+                    	<div class="widget widget-about-us">
+                            {% for q in autopsies %}
+                                <p>
+                                        <div class="comment-content">
+                                            <div class="comment-ava">
+                                                <img src="{{ url_for('static', filename='uploads/{}'.format(q.company_logo)) }}" alt="company logo">
+                                            </div>
+                                            <div class="com-box">
+                                                <p class="com-author">{{ q.company_name }}</p>
+                                                <div class="com-meta"><a href="#">{{ q.industry }}</a></div>
+                                                <p>{{ q.description | truncate(100)}}</p>
+                                            </div>
+                                        </div>
+                                </p>
+                            {% endfor %}
                             </div>
-                            <div class="com-box">
-                                <p class="com-author">{{ q.company_name }}</p>
-                                <div class="com-meta"><a href="#">{{ q.industry }}</a></div>
-                                <p>{{ q.description | truncate(100)}}</p>
-                            </div>
-                        </div>
-                    </div>
-                   {% endfor %}
-                    </div>
-            </div><!--end show-comment-->
-            <div class="spacing20 clearboth"></div>
-            <div class="spacing40 clearboth"></div>
-        </div>
-        <!--comment ending -->
 
-            <ul class="pagination">
-								  <li><a href="#">«</a></li>
-								  <li class="active"><a href="#">1</a></li>
-								  <li><a href="#">2</a></li>
-								  <li><a href="#">3</a></li>
-								  <li><a href="#">4</a></li>
-								  <li><a href="#">5</a></li>
-								  <li><a href="#">»</a></li>
-						</ul>
+                        </div><!--/.widget-about-us-->
 
-            </div><!--/.container-->
-        </div>
+						<div class="widget search">
+							<form id="searchform">
+								<input id="s" name="s" value="" placeholder="Search and hit enter..." type="search">
+								<input id="searchsubmit" type="submit">
+							</form>
+						</div><!--/.search-->
+
+						<div class="widget recent-post clearfix">
+							<h3 class="widgettitle">Recent Posts</h3>
+
+							<ul>
+								<li><a href="#">Zach wake up in a futuristic dystopia</a></li>
+								<li><a href="#">Betrayed by his own kind</a></li>
+								<li><a href="#">A romantic comedy that brings together</a></li>
+								<li><a href="#">Always one step ahead</a></li>
+							</ul>
+						</div><!--/.recent-post-->
+
+						<div class="widget tagcloud">
+							<h3 class="widgettitle">Industry Cloud</h3>
+
+							<a href="#">Funny</a>
+							<a href="#">Design</a>
+							<a href="#">Inspiration</a>
+							<a href="#">Perfect</a>
+							<a href="#">Photography</a>
+							<a href="#">Identity</a>
+							<a href="#">Brand</a>
+						</div>
+					</div><!--/.sidebar-->
+					<!--SIDEBAR END-->
+
+				 </div><!--/.row-->
+			  </div><!--/.container-->
+		    </div>
 
 
 
@@ -208,5 +240,7 @@
         })(jQuery);
         </script>
 
+
+        </div>
     </body>
 </html>
