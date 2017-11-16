@@ -37,10 +37,10 @@ def index():
     return render_template("index.html", autopsies=autopsies)
 
 
-@app.route("/startups")
-def show_startup():
-    autopsies = AutopsyModel.select()
-    return render_template("startups.html", autopsies=autopsies)
+@app.route("/startups/<int:id>")
+def show_startup(id):
+    autopsy = AutopsyModel.get(AutopsyModel.id == id)
+    return render_template("startups.html", autopsy=autopsy)
 
 
 @app.route("/admin/login", methods=['GET', 'POST'])
@@ -66,6 +66,7 @@ def admin_login():
                 'username': user.username,
                 'email': user.email
             }
+
             return redirect(url_for('admin_index'))
 
         except Exception as exception:
@@ -156,6 +157,7 @@ def create():
 def edit(id):
     autopsi = AutopsyModel.get(AutopsyModel.id == id)
     return render_template('admin/edit.html', autopsy=autopsi)
+
 
 @app.route("/admin/update/<int:id>", methods=['POST', 'GET'])
 def update(id):

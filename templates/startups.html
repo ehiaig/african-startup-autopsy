@@ -1,246 +1,207 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <title>African Startups that failed</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
+<html lang="en-US">
 
-        <!-- Le styles -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Eiefy">
+        <title>African Startups that failed</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Signika:300,400,600,700" rel="stylesheet">
+        <!--Font Awesome-->
+        <link href="{{ url_for('static', filename='css/font-awesome.css') }}" rel="stylesheet">
         <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/frontend/style.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/frontend/animate.css') }}" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:700,800&amp;subset=latin-ext" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i&amp;subset=cyrillic,latin-ext" rel="stylesheet">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic,600italic,600&amp;subset=latin,greek-ext,cyrillic-ext,greek,vietnamese,cyrillic' rel='stylesheet' type='text/css'>
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!-- Custom -->
+        <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
-          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 
-        <!-- Favicons -->
-        <link rel="shortcut icon" href="images/favicon.png"><!--favicon image-->
     </head>
+    <body>
 
-    <body class="multi-page">
+        <!-- HEADER -->
+        <header>
+            <div class="container">
+                <a href="index.html" class="logo pull-left">
+                    <img src="fonts/eiefy_icons/logo.svg" alt="logo">
+                </a>
+                <nav>
+                    <ul class="list-inline pull-right">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="submit.html">Submit</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
-        <!--HOME START-->
-        <div id="home" class="clearfix img-bg" data-background="images/bg/1.jpg">
-            <!--HEADER START-->
-            <nav class="header home-section clearfix  white-nav trans-nav">
-                    <div class="nav-head">
-                        <div class="container nav-box">
-                            <div class="logo">
-                                <a href="index.html">
-                                    <img class="logo1" alt="logo" src="images/logo-dark.png">
-                                </a>
-                            </div>
-                            <div class="menu-box hidden-xs hidden-sm">
-                                <ul class="navigation">
-                                    <li>
-                                        <a href="#">Home</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Submit startup</a>
-                                    </li>
-                                    <li><a href="#">Contact</a></li>
-                                </ul>
-                            </div><!--/.menu-box-->
-                            <div class="box-mobile hidden-lg hidden-md">
-                                <div class="menu-btn" data-toggle="collapse" data-target=".nav-collapse">
-                                    <span class="fa fa-bars"></span>
+<!-- MAIN -->
+        <main class="case-study">
+            <div class="container">
+
+                <section class="text-block text-left mb-60">
+                    <div class="">
+                        <div class="i-block border-decor-parent image-scale">
+                            <div class="row">
+                                <div class="col-sm-3 text-center">
+                                    <img src="{{ url_for('static', filename='uploads/{}'.format(autopsy.company_logo)) }}" alt="" style="height:50px; width:120px">
                                 </div>
-                                <ul class="nav-collapse mobile-menu hidden-lg hidden-md"></ul>
-                            </div><!--/.box-mobile-->
-                        </div><!--/.container-->
-                    </div><!--/.nav-head-->
-            </nav><!--/.header-->
-            <!--HEADER END-->
-        </div>
-
-            <!--YOUTUBE BACKGROUND-->
-            <div class="bg-youtube" data-property="{videoURL:'http://www.youtube.com/watch?v=LWjq0ibMpYI', opacity:1, autoPlay:true, containment:'#home', startAt:0, stopAt:0, mute:true, optimizeDisplay:true, showControls:false, printUrl:true, loop:true, addRaster:false, quality:'hd1080', realfullscreen:'true', ratio:'auto'}"></div>
-            <!--YOUTUBE BACKGROUND END-->
-
-            <!--HERO  START--
-            <div class="hero-box container">
-                <div class="small-caption-box">
-                    <p class="smal-caption-sub">African startup Autopsies</p>
-
-                    <h3 class="hero-box-title animated" data-animated="fadeInUp">
-                        Startups fail for <span class="personal-color"></span>
-                        <span class="blink">-</span>
-                        <i class="fa fa-language"></i>
-                    </h3>
-                    <p>A directory of Startups that have failed in Africa. Learn from them!</p>
-                    <div class="spacing20 clearboth"></div>
-                    <p>
-                        <a class="hero-btn margin-right10" href="#">Startup Reviews</a>
-                        <a class="hero-btn" href="#">Submit startup</a>
-                    </p>
-                </div><!--/.small-caption-box--
-            </div><!--/.hero-box-->
-            <!--HERO  END-->
-        </div><!--/home end-->
-        <!--HOME END-->
-
-            <div class="content blog-wrapper single-blog">
-			    <div class="container clearfix">
-				 <p class="row clearfix">
-					<div class="col-md-8 blog-content">
-
-						<!--BLOG POST START-->
-						<article class="blog-post">
-
-                             <h5 class="blog-title">Five friends are Terrorized by an Entity Mysterious Supernatural  </h5>
-                            <p>Hi</p>
-							 <ul class="post-detail">
-							 	<li><i class="fa fa-archive"></i> <a href="#">Indistry</a></li>
-								<li><i class="fa fa-tags"></i> <a href="#">Amount Raised</a></li>
-								<li><i class="fa fa-calendar-o"></i> Year Range</li>
-                                 <li><i class="fa fa-calendar-o"></i> Founders</li>
-							 </ul>
-							 <div class="spacing40 clearfix"></div>
-
-
-							 <p>About startup.</p>
-                            <div class="spacing20 clearfix"></div>
-                            <div class="border-post clearfix"></div>
-                            <div>
-                                Why they failed
+                                <div class="col-md-6">
+                                    <h4 class="border-decor">{{ autopsy.company_name }}</h4>
+                                    <p>{{ autopsy.description | truncate (120) }}</p>
+                                </div>
                             </div>
+                        </div>
+                    </div>
+                </section>
 
-                             <div class="border-post clearfix"></div>
-						</article><!--/.blog-post-->
-						<!--BLOG POST END-->
-					</div><!--/.col-md-8-->
-
-					<!--SIDEBAR START-->
-					<div class="col-md-4 sidebar">
-                    	<div class="widget widget-about-us">
-                            {% for q in autopsies %}
-                                <p>
-                                        <div class="comment-content">
-                                            <div class="comment-ava">
-                                                <img src="{{ url_for('static', filename='uploads/{}'.format(q.company_logo)) }}" alt="company logo">
-                                            </div>
-                                            <div class="com-box">
-                                                <p class="com-author">{{ q.company_name }}</p>
-                                                <div class="com-meta"><a href="#">{{ q.industry }}</a></div>
-                                                <p>{{ q.description | truncate(100)}}</p>
-                                            </div>
-                                        </div>
-                                </p>
-                            {% endfor %}
+                <!--
+                <section class="row mb-40">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="block-icon">
+                            <img src="fonts/eiefy_icons/User_base.svg" alt="">
+                            <div class="text-block">
+                                <h4 class="text-center border-decor">Building User Base</h4>
+                                <p class="text-center">High resoulution images are going to look beautiful on this site.</p>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="block-icon">
+                            <img src="fonts/eiefy_icons/Creative_Testing.svg" alt="">
+                            <div class="text-block">
+                                <h4 class="text-center border-decor">More Creative Testing</h4>
+                                <p class="text-center">Each page is specially engineered and search-engine-optimized (SEO).</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="block-icon">
+                            <img src="fonts/eiefy_icons/Segment.svg" alt="">
+                            <div class="text-block">
+                                <h4 class="text-center border-decor">Strategic Segment Hunting</h4>
+                                <p class="text-center">Easy to understand documentation and video tutorials included.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                -->
+                <div class="border-block mb-60"></div>
+                <section class="features row">
+                    <div class="col-md-4">
+                        <div class="features-info">
+                            <h6 class="border-decor">Company Info</h6>
+                            <table class="table">
+                                <tr>
+                                    <td>Category</td>
+                                    <td>{{ autopsy.industry }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Country</td>
+                                    <td>{{ autopsy.country }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Amount Raised</td>
+                                    <td>{{ autopsy.amount_raised }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Year Range</td>
+                                    <td>{{ autopsy.year_range }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Founders</td>
+                                    <td>{{ autopsy.founder_name }}</td>
+                                </tr>
+                            </table>
+                            <a href="#" class="btn btn-gray btn-small">Visit Website</a>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <!--<h6>More case studies</h6>-->
+                        <section class="row preview inhover-btn">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <a href="#" class="description">What they do</a>
+                                <p>{{ autopsy.description }}</p>
+                                <!--<a href="#" class="url">sharehub.com</a>-->
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <a href="#" class="description">Why they failed</a>
+                                <p>{{ autopsy.why_they_failed }}</p>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </main>
 
-                        </div><!--/.widget-about-us-->
-
-						<div class="widget search">
-							<form id="searchform">
-								<input id="s" name="s" value="" placeholder="Search and hit enter..." type="search">
-								<input id="searchsubmit" type="submit">
-							</form>
-						</div><!--/.search-->
-
-						<div class="widget recent-post clearfix">
-							<h3 class="widgettitle">Recent Posts</h3>
-
-							<ul>
-								<li><a href="#">Zach wake up in a futuristic dystopia</a></li>
-								<li><a href="#">Betrayed by his own kind</a></li>
-								<li><a href="#">A romantic comedy that brings together</a></li>
-								<li><a href="#">Always one step ahead</a></li>
-							</ul>
-						</div><!--/.recent-post-->
-
-						<div class="widget tagcloud">
-							<h3 class="widgettitle">Industry Cloud</h3>
-
-							<a href="#">Funny</a>
-							<a href="#">Design</a>
-							<a href="#">Inspiration</a>
-							<a href="#">Perfect</a>
-							<a href="#">Photography</a>
-							<a href="#">Identity</a>
-							<a href="#">Brand</a>
-						</div>
-					</div><!--/.sidebar-->
-					<!--SIDEBAR END-->
-
-				 </div><!--/.row-->
-			  </div><!--/.container-->
-		    </div>
-
-
-
-        <footer class="footer clearfix">
+        <!-- FOOTER -->
+        <footer>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <p>Made with <i class="fa fa-coffee"></i> in Accra  &copy;2017</p>
-                    </div><!--/.col-md-6-->
+                    <div class="col-md-4 col-sm-6 col-xs-6">
+                        <a href="index.html" class="logo">
+                            <img src="fonts/eiefy_icons/logo.svg" alt="logo">
+                        </a>
+                        <p>A directory of Startups that failed in Africa.</p>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-6">
+                        <ul class="footer-menu">
+                            <li>
+                                <a href="#" class="border-decor">Category</a>
+                                <ul>
+                                    <li class="button"><a href="#">Transport</a></li>
+                                    <li class="button"><a href="#">Analytics</a></li>
+                                    <li class="button"><a href="#">E-commerce</a></li>
+                                    <li class="button"><a href="#">Photography</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="border-decor">Info</a>
+                                <ul>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="contact_support.html">Contact</a></li>
+                                    <li><a href="pricing.html">Pricing</a></li>
+                                    <li><a href="index.html">Blog</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix hidden-md hidden-lg"></div>
+                    <div class="col-md-4 col-sm-12">
+                        <p>Learn from failed startups</p>
+                        <form action="#" method="post">
+                            <input type="text" class="form-control" placeholder="Email Address" />
+                            <input type="submit" class="btn btn-small btn-gray" value="Subscribe" />
+                        </form>
+                        <ul class="icons">
+                            <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="copyright pull-right">&#169; 2017 African Startup Autopsy</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
-                    <div class="col-md-6 footer-box">
-                        <ul class="footer-icon">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        </ul><!--/.team-icon-->
-                    </div><!--/.footer-box-->
-                </div><!--/.row-->
-            </div><!--/.container-->
-        </footer><!--/.footer-->
-
-        <!-- The javascript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="{{ url_for('static', filename='js/frontend/modernizr.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <!-- JAVA SCRIPT -->
+        <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
         <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/frontend/animate.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/frontend/script.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/frontend/typed.min.js') }}"></script>
-        <script type="text/javascript">
-        (function($) {
-            "use strict";
-            //typed jquery
-            var typed = new Typed('.personal-color', {
-                strings: ["Lack of Funds", "Wrong Team", "Wrong Business Model", "Wrong Timing",],
-                typeSpeed: 220,
-                smartBackspace: true,
-                backDelay: 500,
-                loop: true,
-                showCursor: false
-            });
 
-        })(jQuery);
-        </script>
+        <script src="{{ url_for('static', filename='js/isotope.pkgd.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/isotope.packery.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 
-        <!--youtube video script start-->
-        <script type="text/javascript" src="js/frontend/jquery.mb.YTPlayer.js"></script>
-        <script type="text/javascript">
-        (function($) {
-            "use strict";
-            if (!Modernizr.touch) {
-                $(".bg-youtube").mb_YTPlayer();
-                } else {
-                //replace the data-background into background image
-                $(".img-bg").each(function() {
-                    var imG = $(this).data('background');
-                    $(this).css('background-image', "url('" + imG + "') "
-
-                    );
-                });
-            }
-        })(jQuery);
-        </script>
-
-
-        </div>
     </body>
 </html>
+
