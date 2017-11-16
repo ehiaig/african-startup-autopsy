@@ -77,6 +77,9 @@
     </div>
 
     <a href="login.html" class="text-center">I already have a membership</a>
+    {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+    {% endif %}
   </div>
 </div>
 <!-- /.login-box -->

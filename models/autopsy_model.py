@@ -1,6 +1,5 @@
 from models.base_model import *
 from peewee import CharField, TextField, DateTimeField
-
 from datetime import datetime
 
 class AutopsyModel(BaseModel):
