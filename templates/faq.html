@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Eiefy">
-        <title>African Startups that failed</title>
+        <title>Submit startup</title>
 
         <link href="https://fonts.googleapis.com/css?family=Signika:300,400,600,700" rel="stylesheet">
-        <!--Font Awesome-->
         <link href="{{ url_for('static', filename='css/font-awesome.css') }}" rel="stylesheet">
         <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
         <!-- Custom -->
@@ -25,7 +24,6 @@
     </head>
     <body>
 
-        <!-- HEADER -->
         <header>
             <div class="container">
                 <a href="index.html" class="logo pull-left">
@@ -42,37 +40,17 @@
         </header>
 
         <!-- MAIN -->
-        <main class="home">
+        <main class="login">
             <div class="container">
-                <section class="text-block mb-70">
-                    <h4 class="text-center">A directory of Startups that failed in Africa.</h4>
-                    <p class="text-center">learn from the mistakes failed startups committed and avoid them.</p>
+                <section class="text-block mb-90">
+                    <h4 class="text-center">Let's have an <span class="color-theme">chat</span> with you!</h4>
+                    <p class="text-center border-decor bd-center">Submit your <span>email</span> and we will contact you within an hour! </p>
                 </section>
-                <a href="#" class="btn btn-large btn-center mb-60">Submit Startup <i class="arrow-right"></i></a>
-                <ul class="list-inline list-menu navigation-isotope">
-                    {% for category in categories %}
-                    <li class="button"><a href="#">{{ category.name }}</a></li>
-                    {% endfor %}
-                </ul>
-
-                <section class="text-block mb-60">
-                    <h4 class="text-center"></h4>
-                    <!--<p class="text-center"></p>-->
+                <section class="image text-center mb-50">
+                    <img src="fonts/eiefy_icons/Login.svg" alt="">
+                    <p>This is a community where failed startup owners come to tell their failure stories and the mistakes they committed, so that future entrepreneurs can learn from them and don’t make the same errors.</p>
                 </section>
 
-                <section class="offers anim-scale row">
-                    {% for q in autopsies %}
-                    <div class="col-md-3 col-sm-6 col-xs-6">
-                        <a href="{{ url_for('show_startup', id=q.id) }}">
-                            <div class="hover"></div>
-                            <img src="{{ url_for('static', filename='uploads/{}'.format(q.company_logo)) }}" alt="company logo" style="height: 50px; width: auto">
-                            <span>{{ q.company_name }}</span>
-                            <p><i><strong>{{ q.industry.name }}</strong></i></p>
-                            <p>{{ q.description }}</p>
-                        </a>
-                    </div>
-                    {% endfor %}
-                </section>
             </div>
         </main>
 
@@ -84,12 +62,12 @@
                         <a href="index.html" class="logo">
                             <img src="fonts/eiefy_icons/logo.svg" alt="logo">
                         </a>
-                        <p>A directory of Startups that failed in Africa.</p>
+                        <p>From logo design to web development expert designers, developers are ready to complete your projects.</p>
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-6">
                         <ul class="footer-menu">
                             <li>
-                                <a href="#" class="border-decor">Category</a>
+                                <a href="#" class="border-decor">Store</a>
                                 <ul>
                                     <li><a href="works.html">Wordpress</a></li>
                                     <li><a href="works.html">PSD Theme</a></li>
@@ -110,7 +88,7 @@
                     </div>
                     <div class="clearfix hidden-md hidden-lg"></div>
                     <div class="col-md-4 col-sm-12">
-                        <p>Learn from failed startups</p>
+                        <p>Subscribe to our newsletter to receive news, updates, free stuff and new releases by email.</p>
                         <form action="#" method="post">
                             <input type="text" class="form-control" placeholder="Email Address" />
                             <input type="submit" class="btn btn-small btn-gray" value="Subscribe" />
@@ -124,7 +102,7 @@
                         </ul>
                     </div>
                     <div class="col-md-12">
-                        <div class="copyright pull-right">&#169; 2017 African Startup Autopsy</div>
+                        <div class="copyright pull-right">&#169; 2016 azyrusthemes</div>
                     </div>
                 </div>
             </div>
@@ -133,9 +111,6 @@
         <!-- JAVA SCRIPT -->
         <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
         <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-
-        <script src="{{ url_for('static', filename='js/isotope.pkgd.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/isotope.packery.js') }}"></script>
         <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 
     </body>

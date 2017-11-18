@@ -54,7 +54,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Welcome, {{session.get('user').get('username')}}</p>
+          <p>Welcome, {{ session.get('user').get('username') }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -77,22 +77,22 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li class="">
+        <li class="active">
           <a href="/admin/create">
             <i class="fa fa-dashboard"></i> <span>Create</span>
           </a>
         </li>
-        <li class="">
-          <a href="/admin/category">
+        <li class="active">
+          <a href="/admin/category/">
             <i class="fa fa-dashboard"></i> <span>Industry</span>
           </a>
         </li>
-          <li class="">
+          <li class="active">
           <a href="/admin/country">
             <i class="fa fa-dashboard"></i> <span>Country</span>
           </a>
         </li>
-        <li class="">
+        <li class="active">
           <a href="/logout">
             <i class="fa fa-dashboard"></i> <span>Logout</span>
           </a>
@@ -121,58 +121,27 @@
 
       <div class="row">
         <!-- Left col -->
-        <section class="col-lg-7 connectedSortable">
+        <section class="col-lg-6 connectedSortable">
           <!-- quick email widget -->
           <div class="box box-info">
             <div class="box-header">
               <i class="fa fa-envelope"></i>
 
-              <h3 class="box-title">Create a Startup</h3>
+              <h3 class="box-title">Edit Startup</h3>
               <!-- /. tools -->
             </div>
             <div class="box-body">
-              <form method="post" action="/admin/create" enctype="multipart/form-data">
+              <form method="post" action="{{ url_for('category_update', id=category.id) }}">
+
                 <div class="form-group">
-                  <input type="text" class="form-control" name="startup_name" placeholder="StartUp Name:">
+                  <input type="text" class="form-control" name="name" placeholder="Industry">
                 </div>
                 <div class="form-group">
-                    <select class="form-control" name="industry">
-                        {% for category in categories %}
-                            <option value="{{category.id}}">{{category.name}}</option>
-                        {% endfor %}
-                      </select>
-                </div>
-                <div class="form-group">
-                    <select class="form-control" name="country">
-                        {% for country in countries %}
-                            <option value="{{country.id}}">{{country.name}}</option>
-                        {% endfor %}
-                      </select>
-                </div>
-                  <div class="form-group">
-                  <input type="text" class="form-control" name="amount_raised" placeholder="Amount Raised">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="year_range" placeholder="Year Range:">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="founder_name" placeholder="Founder Name ">
-                </div>
-                <div class="form-group">
-                  <textarea class="textarea" placeholder="Short Description" name="description"
-                            style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                </div>
-                <div class="form-group">
-                  <textarea class="textarea" placeholder="Why they failed" name="why_they_failed"
-                            style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputFile">Company Logo input</label>
-                  <input id="exampleInputFile" type="file" name="company_logo">
+                  <input type="text" class="form-control" name="slug" placeholder="Slug">
                 </div>
 
                 <div class="box-footer clearfix">
-                    <button class="pull-right btn btn-primary" id="sendEmail" type="submit">Send
+                    <button class="pull-right btn btn-primary" type="submit">Send
                     <i class="fa fa-arrow-circle-right"></i></button>
                 </div>
               </form>
@@ -183,55 +152,60 @@
         </section>
         <!-- /.Left col -->
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-5 connectedSortable">
+        <section class="col-lg-6 connectedSortable">
 
-            <div class="box box-primary">
+            <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Recently Added Startups</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
+              <h3 class="box-title">Recently Added Industries</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                {% for q in autopsies %}
-              <ul class="products-list product-list-in-box">
-                <li class="item">
-                  <div class="product-img">
-                    <img src="{{ url_for('static', filename='uploads/{}'.format(q.company_logo)) }}" alt="Startup Logo" style="height:50px">
-                  </div>
-                  <div class="product-info">
-                    <a href="" class="product-title">{{ q.company_name }}
+              <table class="table table-bordered">
+                <tbody>
+                {% for category in categories %}
+                <tr>
+                  <th style="width: 10px">#</th>
+                  <th>Name</th>
+                  <th>Slug</th>
+                </tr>
+                <tr>
+                  <td>{{ category.id }}</td>
+                  <td>{{ category.name }}</td>
+                  <td>{{ category.slug }}</td>
+                  <td>
 
-                      <span class="label label-warning pull-right">{{ q.industry.name }}</span>
+                      <div>
+                      <a href="{{ url_for('edit', id=category.id) }}" class="pull-right btn btn-primary">
+                          Edit<i class="fa fa-edit"></i>
 
-                    </a>
-                    <span class="product-description">
-                          {{ q.description }}
-                        </span>
-                  </div>
-                  <div class="tools pull-right">
-                      <a href="{{ url_for('edit', id=q.id) }}" class="small-box-footer">
-                          <i class="fa fa-edit"></i>
                       </a>
-                      <a href="{{ url_for('delete', id=q.id) }}" class="small-box-footer">
-                          <i class="fa fa-trash-o"></i>
+                  </div>
+                  </td>
+                    <td><div>
+                      <a href="{{ url_for('delete', id=category.id) }}" class="pull-right btn btn-primary">
+                          Delete<i class="fa fa-trash-o"></i>
                       </a>
 
                   </div>
-                </li>
-              </ul>
+                  </td>
+                </tr>
                 {% endfor %}
+
+              </tbody></table>
             </div>
             <!-- /.box-body -->
-            <div class="box-footer text-center">
-              <a href="javascript:void(0)" class="uppercase">View All Products</a>
+            <div class="box-footer clearfix">
+              <ul class="pagination pagination-sm no-margin pull-right">
+                <li><a href="#">«</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">»</a></li>
+              </ul>
             </div>
-            <!-- /.box-footer -->
           </div>
+
+
 
         </section>
         <!-- right col -->
@@ -246,7 +220,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="#">ASA</a>.</strong> All rights
+    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
     reserved.
   </footer>
 

@@ -33,9 +33,9 @@
                 </a>
                 <nav>
                     <ul class="list-inline pull-right">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="submit.html">Submit</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="/" class="font-16 weight-lighter color-theme-hover">Home</a></li>
+                        <li><a href="{{ url_for('submit_startup')}}" class="font-16 weight-lighter color-theme-hover">Submit</a></li>
+                        <li><a href="{{ url_for('faq') }}" class="font-16 weight-lighter color-theme-hover">FAQ</a></li>
                     </ul>
                 </nav>
             </div>
@@ -50,7 +50,7 @@
                         <div class="i-block border-decor-parent image-scale">
                             <div class="row">
                                 <div class="col-sm-3 text-center">
-                                    <img src="{{ url_for('static', filename='uploads/{}'.format(autopsy.company_logo)) }}" alt="" style="height:50px; width:120px">
+                                    <img src="{{ url_for('static', filename='uploads/{}'.format(autopsy.company_logo)) }}" alt="" style="height:50px; width:auto">
                                 </div>
                                 <div class="col-md-6">
                                     <h4 class="border-decor">{{ autopsy.company_name }}</h4>
@@ -100,11 +100,11 @@
                             <table class="table">
                                 <tr>
                                     <td>Category</td>
-                                    <td>{{ autopsy.industry }}</td>
+                                    <td>{{ autopsy.industry.name }}</td>
                                 </tr>
                                 <tr>
                                     <td>Country</td>
-                                    <td>{{ autopsy.country }}</td>
+                                    <td>{{ autopsy.country.name }}</td>
                                 </tr>
                                 <tr>
                                     <td>Amount Raised</td>
@@ -124,14 +124,14 @@
                     </div>
                     <div class="col-md-8">
                         <!--<h6>More case studies</h6>-->
-                        <section class="row preview inhover-btn">
+                        <section class="row preview ">
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <a href="#" class="description">What they do</a>
+                                <h5 class="description" >Why They Do</h5>
                                 <p>{{ autopsy.description }}</p>
                                 <!--<a href="#" class="url">sharehub.com</a>-->
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <a href="#" class="description">Why they failed</a>
+                                <h5 class="description">Why they failed</h5>
                                 <p>{{ autopsy.why_they_failed }}</p>
                             </div>
                         </section>
