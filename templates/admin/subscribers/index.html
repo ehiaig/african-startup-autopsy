@@ -125,43 +125,12 @@
     <section class="content">
 
       <div class="row">
-        <!-- Left col -->
-        <section class="col-lg-6 connectedSortable">
-          <!-- quick email widget -->
-          <div class="box box-info">
-            <div class="box-header">
-              <i class="fa fa-envelope"></i>
 
-              <h3 class="box-title">Add country</h3>
-              <!-- /. tools -->
-            </div>
-            <div class="box-body">
-              <form method="post" action="/admin/country/create">
-
-                <div class="form-group">
-                  <input type="text" class="form-control" name="name" placeholder="Country">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="slug" placeholder="Slug">
-                </div>
-
-                <div class="box-footer clearfix">
-                    <button class="pull-right btn btn-primary" type="submit">Create
-                    <i class="fa fa-arrow-circle-right"></i></button>
-                </div>
-              </form>
-            </div>
-
-          </div>
-
-        </section>
-        <!-- /.Left col -->
-        <!-- right col (We are only adding the ID to make the widgets sortable)-->
         <section class="col-lg-6 connectedSortable">
 
             <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Recently Added Industries</h3>
+              <h3 class="box-title">All Subcribers</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -171,26 +140,15 @@
                 <tr>
                   <th style="width: 10px">#</th>
                   <th>Name</th>
-                  <th>Slug</th>
                 </tr>
-                {% for country in countries %}
+                {% for subscriber in subscribers %}
                 <tr>
 
-                  <td>{{ country.id }}</td>
-                  <td>{{ country.name }}</td>
-                  <td>{{ country.slug }}</td>
-                  <td>
-
-                      <div>
-                      <a href="{{ url_for('country_edit', id=country.id) }}" class="pull-right btn btn-primary">
-                          Edit <i class="fa fa-edit"></i>
-
-                      </a>
-                  </div>
-                  </td>
+                  <td>{{ subscriber.id }}</td>
+                  <td>{{ subscriber.email }}</td>
                     <td>
                         <div>
-                             <a href="{{ url_for('country_delete', id=country.id) }}" class="pull-right btn btn-primary">
+                             <a href="{{ url_for('delete_subscriber', id=subscriber.id) }}" class="pull-right btn btn-primary">
                           Delete <i class="fa fa-trash-o"></i>
                             </a>
 

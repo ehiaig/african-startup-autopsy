@@ -1,54 +1,19 @@
-<!DOCTYPE html>
-<html lang="en-US">
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+{% extends 'base.html' %}
+{%  block title %}
+    <title>Submit Startup</title>
+{% endblock %}
 
-<head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="Eiefy">
-        <title>Submit startup</title>
-
-        <link href="https://fonts.googleapis.com/css?family=Signika:300,400,600,700" rel="stylesheet">
-        <link href="{{ url_for('static', filename='css/font-awesome.css') }}" rel="stylesheet">
-        <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
-        <!-- Custom -->
-        <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
-
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
-    </head>
-    <body>
-
-        <header>
-            <div class="container">
-                <a href="index.html" class="logo pull-left">
-                    <img src="fonts/eiefy_icons/logo.svg" alt="logo">
-                </a>
-                <nav>
-                    <ul class="list-inline pull-right">
-                        <li><a href="/" class="font-16 weight-lighter color-theme-hover">Home</a></li>
-                        <li><a href="{{ url_for('submit_startup')}}" class="font-16 weight-lighter color-theme-hover">Submit</a></li>
-                        <li><a href="{{ url_for('faq') }}" class="font-16 weight-lighter color-theme-hover">FAQ</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-
+{% block content %}
         <!-- MAIN -->
         <main class="login">
             <div class="container">
                 <section class="text-block mb-90">
-                    <h4 class="text-center">Let's have an <span class="color-theme">chat</span> with you!</h4>
-                    <p class="text-center border-decor bd-center">Submit your <span>email</span> and we will contact you within an hour! </p>
+                    <h4 class="text-center">Let's have a <span class="color-theme">chat</span> with you!</h4>
                 </section>
                 <section class="image text-center mb-50">
                     <img src="fonts/eiefy_icons/Login.svg" alt="">
-                    <p>This is a community where failed startup owners come to tell their failure stories and the mistakes they committed, so that future entrepreneurs can learn from them and don’t make the same errors.</p>
+                    <p>We tell startup failure stories and the mistakes, so that future entrepreneurs can learn from them and don’t make the same errors.</p>
+                    <p class="text-center border-decor bd-center">Got one? Drop your <span>email</span> and we will be in touch in an hour! </p>
                 </section>
                 <section class="login-form text-center">
 
@@ -57,71 +22,10 @@
                             <input type="email" name="email" class="form-control" placeholder="Email Address" required>
                             <input type="submit" class="btn btn-small" value="Submit">
                         </div>
-                        <p>{{ msg }}</p>
                     </form>
                 </section>
             </div>
         </main>
 
-        <!-- FOOTER -->
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-6 col-xs-6">
-                        <a href="index.html" class="logo">
-                            <img src="fonts/eiefy_icons/logo.svg" alt="logo">
-                        </a>
-                        <p>From logo design to web development expert designers, developers are ready to complete your projects.</p>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-6">
-                        <ul class="footer-menu">
-                            <li>
-                                <a href="#" class="border-decor">Store</a>
-                                <ul>
-                                    <li><a href="works.html">Wordpress</a></li>
-                                    <li><a href="works.html">PSD Theme</a></li>
-                                    <li><a href="works.html">Icons Packs</a></li>
-                                    <li><a href="works.html">Site Template</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#" class="border-decor">Info</a>
-                                <ul>
-                                    <li><a href="services.html">Services</a></li>
-                                    <li><a href="contact_support.html">Contact</a></li>
-                                    <li><a href="pricing.html">Pricing</a></li>
-                                    <li><a href="index.html">Blog</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="clearfix hidden-md hidden-lg"></div>
-                    <div class="col-md-4 col-sm-12">
-                        <p>Subscribe to our newsletter to receive news, updates, free stuff and new releases by email.</p>
-                        <form action="#" method="post">
-                            <input type="text" class="form-control" placeholder="Email Address" />
-                            <input type="submit" class="btn btn-small btn-gray" value="Subscribe" />
-                        </form>
-                        <ul class="icons">
-                            <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="copyright pull-right">&#169; 2016 azyrusthemes</div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        <!-- JAVA SCRIPT -->
-        <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-
-    </body>
-</html>
+{% endblock %}
 

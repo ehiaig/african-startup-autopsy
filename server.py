@@ -154,6 +154,21 @@ def admin_index():
 
     return redirect(url_for('admin_login'))
 
+######## Subscriber List Handler ########
+
+@app.route("/admin/subscribers/", methods=['GET', 'POST'])
+def subscriber_list():
+    if 'user' in session:
+        subscribers=Subscription.select()
+        return render_template('admin/subscribers/index.html', subscribers=subscribers)
+    return redirect(url_for('admin_login'))
+
+@app.route("/admin/subscribers/delete/<int:id>")
+def delete_subscriber(id):
+    subscriber = Subscription.get(Subscription.id == id)
+    subscriber.delete_instance()
+    return redirect('admin/subscribers/')
+
 
 ######## AUTOPSY CRUD Handler ########
 
