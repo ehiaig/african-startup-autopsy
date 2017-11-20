@@ -330,4 +330,7 @@ def country_delete(id):
     country.delete_instance()
     return redirect('admin/country/')
 
+if __name__=='__main__':
+    app.run()
+
 app.secret_key = os.environ.get("FLASK_SECRET_KEY")
