@@ -102,7 +102,7 @@ def admin_login():
         except Exception as exception:
             flash('Wrong credentials. Error: {}'.format(exception), category='danger')
 
-    return render_template("admin/submit.html")
+    return render_template("admin/login.html")
 
 
 @app.route("/admin/register", methods=['POST', 'GET'])
@@ -203,7 +203,9 @@ def create():
 @app.route("/admin/edit/<int:id>")
 def edit(id):
     autopsi = Autopsy.get(Autopsy.id == id)
-    return render_template('admin/edit.html', autopsy=autopsi)
+    categories = Category.select()
+    countries = Country.select()
+    return render_template('admin/edit.html', autopsy=autopsi, categories=categories, countries=countries)
 
 
 @app.route("/admin/update/<int:id>", methods=['POST', 'GET'])
@@ -330,7 +332,8 @@ def country_delete(id):
     country.delete_instance()
     return redirect('admin/country/')
 
+app.secret_key = os.environ.get("FLASK_SECRET_KEY")
+
 if __name__=='__main__':
     app.run()
 
-app.secret_key = os.environ.get("FLASK_SECRET_KEY")
